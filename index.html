@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記憶大考驗 - 單字配對</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- 引入 SweetAlert -->
+</head>
+<body>
+    <h1>記憶大考驗 - 單字配對</h1>
+    
+    <!-- 遊戲選項 -->
+    <div id="game-options">
+        <label for="grid-size">選擇網格大小：</label>
+        <select id="grid-size" style="font-size: 20px;">
+            <option value="2">2 x 2</option>
+            <option value="3" selected>2 x 3</option>
+            <option value="5">2 x 5</option>
+        </select>
+        <label for="countdown-time">倒數計時：</label>
+        <select id="countdown-time" style="font-size: 20px;">
+            <option value="1">1 秒</option>
+            <option value="3" selected>3 秒</option>
+            <option value="5">5 秒</option>
+            <option value="10" >10 秒</option>
+            <option value="15">15 秒</option>
+        </select>
+    </div>
+
+    <!-- 倒數計時顯示在右上角 -->
+    <div id="fullscreen-timer">10</div>
+    
+    <!-- 遊戲板 -->
+    <div id="game-board"></div>
+    
+    <!-- 按鈕 -->
+    <button id="start">開始遊戲</button>
+    <button id="restart" style="display:none;">重新開始</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

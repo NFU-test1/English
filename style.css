@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+    background-color: #f7f7f7;
+    height: 100vh; /* 佔滿整個視窗 */
+    overflow: hidden; /* 避免頁面滾動 */
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#game-options {
+    margin-bottom: 15px;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#game-board {
+    display: grid;
+    gap: 15px; /* 增加卡片之間的間距 */
+    margin-top: 20px;
+    width: 100%; /* 讓網格寬度自適應 */
+    height: 70vh; /* 固定卡片區域佔可視高度的 70% */
+    justify-content: center;
+}
+
+.card {
+    perspective: 1000px;
+    cursor: pointer;
+    transition: opacity 1.5s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: #f0f0f0;
+}
+
+.card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.card-back img {
+    width: 90%; /* 確保圖片占大部分區域 */
+    height: 90%;
+    object-fit: contain; /* 確保圖片完整顯示 */
+    border-radius: 6px;
+}
+
+.card-back span {
+    font-size: calc(2vw); /* 動態調整文字大小 */
+    padding: 10px;
+    line-height: 1.2;
+    word-break: break-word;
+    text-align: center;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#fullscreen-timer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 999;
+    opacity: 1;
+    visibility: hidden;
+    transition: opacity 1s ease;
+}
+
+#fullscreen-timer.show {
+    visibility: visible;
+}
+
+#fullscreen-timer.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
